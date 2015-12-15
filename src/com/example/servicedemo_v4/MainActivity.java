@@ -37,7 +37,6 @@ public class MainActivity extends Activity
 			isBinder = true;
 			binder_v4 = (MyBinder_v4) service;
 			binder_v4.setMessenger(messenger);
-			// binder_v4.startMyT();
 		}
 	};
 	private boolean isBinder;
@@ -61,6 +60,7 @@ public class MainActivity extends Activity
 	@Override
 	protected void onDestroy()
 	{
+		Log.d("","onDestroy()");
 		super.onDestroy();
 		if (isBinder)
 		{
@@ -71,6 +71,7 @@ public class MainActivity extends Activity
 	@Override
 	protected void onStop()
 	{
+		Log.d("","onStop()");
 		super.onStop();
 
 	}
