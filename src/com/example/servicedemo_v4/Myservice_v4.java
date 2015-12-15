@@ -26,9 +26,22 @@ public class Myservice_v4 extends Service
 	public void onCreate()
 	{
 		super.onCreate();
-		Log.d("", "Myservice_v4-onCreate");
 		binder_v4 = new MyBinder_v4();
 		thread.start();
+	}
+
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId)
+	{
+		Log.d("", "onStartCommand");
+		return super.onStartCommand(intent, flags, startId);
+	}
+
+	@Override
+	public void onDestroy()
+	{
+		super.onDestroy();
+		isResume = false;
 	}
 
 	class MyBinder_v4 extends Binder
@@ -38,10 +51,10 @@ public class Myservice_v4 extends Service
 			mMessenger = messenger;
 		}
 
-//		public void startMyT()
-//		{
-//			thread.start();
-//		}
+		// public void startMyT()
+		// {
+		// thread.start();
+		// }
 
 		public void setFlag(boolean b)
 		{
